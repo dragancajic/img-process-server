@@ -3,6 +3,10 @@ On Mac use the homebrew package manager.
 ```
 brew install graphicsmagick
 ```
+On _Linux_ type this command:
+```
+npm install graphicsmagick
+```
 On Windows use the choclatey package manager.
 ```
 choco install graphicsmagick
