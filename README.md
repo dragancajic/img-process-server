@@ -1,3 +1,7 @@
+# Build an Image Processing Server
+
+### _I n s t r u c t i o n s_
+---
 To run the project you must first install graphicsmagick.
 On Mac use the homebrew package manager.
 ```
@@ -23,4 +27,5 @@ Run an individual test
 ```
 npm run test:module-3
 ```
-
+---
+2023 @ _Pluralsight_
