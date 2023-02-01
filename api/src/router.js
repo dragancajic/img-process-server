@@ -6,7 +6,7 @@ const imageProcessor = require('./imageProcessor');
 
 const router = Router();
 
-function filename(request, file, callback) {
+const filename = (request, file, callback) => {
   callback(null, file.originalname);
 };
 
@@ -15,14 +15,14 @@ const storage = multer.diskStorage({
   filename
 });
 
-function fileFilter(request, file, callback) {
+const fileFilter = (request, file, callback) => {
   if (file.mimetype !== "image/png") {
     request.fileValidationError = "Wrong file type";
     callback(null, false, new Error("Wrong file type"));
   } else {
     callback(null, true);
   }
-}
+};
 
 const upload = multer({
   fileFilter,
@@ -30,8 +30,11 @@ const upload = multer({
 });
 
 router.post('/upload', upload.single('photo'), (request, response) => {
-  if (request.fileValidationError) return response.status(400).json({error: request.fileValidationError});
-
+  if (request.fileValidationError) {
+    console.log("There is an ERROR!");
+    return response.status(400).json({error: request.fileValidationError});
+  }
+  console.log("Finally you got SUCCESS!");
   return response.status(201).json({success: true});
 });
 
